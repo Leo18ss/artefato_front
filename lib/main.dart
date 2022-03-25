@@ -18,7 +18,7 @@ Future<void> main() async {
         ),
         debugShowCheckedModeBanner: false,
         //home: _userToken == null ? SplashLogin() : SplashHome(),
-        home: SplashHome(),
+        home: SplashLogin(),
       ),
     
   );
