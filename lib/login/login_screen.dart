@@ -4,7 +4,6 @@ import 'package:artefato/login/widgets/customLogin_textField.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-
 import '../conexoes.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -25,27 +24,17 @@ class _LoginScreenState extends State<LoginScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 245, 245, 245),
-      body: Container(
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Container(
           padding: EdgeInsets.all(0),
+          child: Column(
           children: <Widget>[
             Stack(
               alignment: Alignment.bottomCenter,
-              children: <Widget>[
-                Positioned(
-                  top: 220,
-                  left: -280,
-                  child: Image.asset(
-                    "images/LoginBack.png",
-                    height: 600,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  top: 116,
-                  left: 82,
+              children: <Widget>[ 
+                Center(
                   child: Text(
-                    "Genus.",
+                    "Artefato",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         color: Color.fromARGB(255, 0, 54, 171),
@@ -188,6 +177,7 @@ class _LoginScreenState extends State<LoginScreen>
               ],
             ),
           ],
+          ),
         ),
       ),
     );
