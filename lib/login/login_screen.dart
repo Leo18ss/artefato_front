@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen>
                       child: Column(
                         children: <Widget>[
                           SizedBox(
-                            height: 140.0,
+                            height: 60.0,
                           ),
                           Center(
                             child: Text(
@@ -86,9 +86,10 @@ class _LoginScreenState extends State<LoginScreen>
                               fontWeight: FontWeight.w400,
                             ),
                             decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 245, 245, 245),
-                                prefixText: "E-mail: "),
+                              labelText: "E-mail",
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 245, 245, 245),
+                            ),
                             validator: (text) {
                               if (text?.isEmpty == true) {
                                 return "Este campo não pode ser vazio!";
@@ -116,9 +117,10 @@ class _LoginScreenState extends State<LoginScreen>
                               fontWeight: FontWeight.w400,
                             ),
                             decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Color.fromARGB(255, 245, 245, 245),
-                                prefixText: "Senha: "),
+                              labelText: "Senha",
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 245, 245, 245),
+                            ),
                             validator: (text) {
                               if (text?.isEmpty == true) {
                                 return "Este campo não pode ser vazio!";
@@ -146,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen>
                                     fontStyle: FontStyle.normal,
                                     fontSize: 16.0),
                               ),
-                              color: Color(0x534100),
+                              color: Colors.brown,
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   Timer(
