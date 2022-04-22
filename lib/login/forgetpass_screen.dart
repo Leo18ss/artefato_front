@@ -27,7 +27,6 @@ class _ForgetPasswordState extends State<ForgetPassword>
       backgroundColor: Color.fromARGB(255, 245, 245, 245),
       body: SingleChildScrollView(
         child: Stack(
-          alignment: Alignment.center,
           children: <Widget>[
             Form(
               key: _formKey,

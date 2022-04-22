@@ -2,7 +2,7 @@
 import 'dart:async';
 import 'package:artefato/home/homeScreen.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
-import 'package:artefato/login/widgets/custom_signUp.dart';
+import 'package:artefato/login/widgets/custom_login.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../conexoes.dart';
@@ -27,7 +27,6 @@ class _SingUpScreenState extends State<SingUpScreen>
       backgroundColor: Color.fromARGB(255, 245, 245, 245),
       body: SingleChildScrollView(
         child: Stack(
-          alignment: Alignment.center,
           children: <Widget>[
             Form(
               key: _formKey,
@@ -120,6 +119,9 @@ class _SingUpScreenState extends State<SingUpScreen>
                           _senhaTxt = text;
                         return null;
                       },
+                    ),
+                    SizedBox(
+                      height: 20.0,
                     ),
                     TextFormField(
                       obscureText: true,
@@ -231,9 +233,9 @@ class _SingUpScreenState extends State<SingUpScreen>
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: CustomForgetpass(),
+                      child: CustomLogin(),
                     ),
-                    CustomSignUp(),
+                    CustomForgetpass(),
                   ],
                 ),
               ),

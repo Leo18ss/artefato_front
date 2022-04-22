@@ -27,7 +27,6 @@ class _LoginScreenState extends State<LoginScreen>
       backgroundColor: Color.fromARGB(255, 245, 245, 245),
       body: SingleChildScrollView(
         child: Stack(
-          alignment: Alignment.center,
           children: <Widget>[
             Form(
               key: _formKey,
@@ -206,9 +205,9 @@ class _LoginScreenState extends State<LoginScreen>
                     SizedBox(
                       height: 28.0,
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: CustomForgetpass(),
+                    Container(
+                      //color: Colors.blue,
+                      child: Center(child: CustomForgetpass()),
                     ),
                     CustomSignUp(),
                   ],
