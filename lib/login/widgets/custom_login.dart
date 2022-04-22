@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
-import 'package:artefato/login/forgetpass_screen.dart';
+import 'package:artefato/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
-class CustomForgetpass extends StatelessWidget {
+class CustomLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
@@ -13,7 +13,7 @@ class CustomForgetpass extends StatelessWidget {
           Expanded(
             flex: 0,
             child: Text(
-              "Esqueceu sua senha?",
+              "Ja tem uma conta?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
@@ -25,11 +25,11 @@ class CustomForgetpass extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 70,
+            width: 105,
             child: FlatButton(
               padding: EdgeInsets.all(0),
               child: Text(
-                "Clique aqui",
+                "Clique para entrar",
                 style: TextStyle(
                   color: Colors.green,
                   fontWeight: FontWeight.w700,
@@ -41,7 +41,7 @@ class CustomForgetpass extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ForgetPassword()));
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
             ),
           ),

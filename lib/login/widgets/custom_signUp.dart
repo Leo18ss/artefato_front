@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use, prefer_const_constructors
-
-import 'package:artefato/home/homeScreen.dart';
+import 'package:artefato/login/singup_screen%20copy.dart';
 import 'package:flutter/material.dart';
 
 class CustomSignUp extends StatelessWidget {
@@ -15,6 +14,7 @@ class CustomSignUp extends StatelessWidget {
             flex: 0,
             child: Text(
               "Não tem uma conta?",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w400,
@@ -41,7 +41,7 @@ class CustomSignUp extends StatelessWidget {
               ),
               onPressed: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => HomeScreen())); //Trocar para cadastro
+                    MaterialPageRoute(builder: (context) => SingUpScreen())); //Trocar para cadastro
               },
             ),
           ),

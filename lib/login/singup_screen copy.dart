@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../conexoes.dart';
 
-class LoginScreen extends StatefulWidget {
+class SingUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SingUpScreenState createState() => _SingUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen>
+class _SingUpScreenState extends State<SingUpScreen>
     with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
 
@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                     Center(
                       child: Text(
-                        "Entrar",
+                        "Cadastrar",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             color: Colors.black,
@@ -121,6 +121,29 @@ class _LoginScreenState extends State<LoginScreen>
                         return null;
                       },
                     ),
+                    TextFormField(
+                      obscureText: true,
+                      keyboardType: TextInputType.visiblePassword,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontFamily: "Raleway",
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Confirme sua senha",
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 245, 245, 245),
+                      ),
+                      validator: (text) {
+                        if (text?.isEmpty == true) {
+                          return "Este campo não pode ser vazio!";
+                        } else
+                          _senhaTxt = text;
+                        return null;
+                      },
+                    ),
                     SizedBox(
                       height: 48.0,
                     ),
@@ -132,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen>
                         controller: _btnController,
                         valueColor: Colors.pink,
                         child: Text(
-                          "Entrar",
+                          "Cadastrar",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
