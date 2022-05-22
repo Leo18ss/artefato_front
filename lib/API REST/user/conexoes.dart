@@ -114,7 +114,3 @@ Future<int> createNewUser(String _isCrafter, String _name, String _bio, String _
     }
 }
 
-Future<String> getName() async => _userName;
-
-Future<List> getIDs() async =>
-    [_userID, _classID, _userName, _userImage, _lastName];
