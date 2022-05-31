@@ -1,12 +1,12 @@
-# Artefato ##em construção
+# Artefato Front-end
 
 [![Dart CI](https://github.com/Leo18ss/artefato_front/actions/workflows/dart.yml/badge.svg)](https://github.com/Leo18ss/artefato_front/actions/workflows/dart.yml)
 
 ## Participantes :man:
-- Danilo Vidal Ribeiro - [E-mail para contato](danilo.vidal@gec.inatel.br)
-- Francielly Marianne Laranjo Silva - [E-mail para contato](francielly.laranjo@gec.inatel.br)
-- Gabriel Moreira Peixoto Diniz - [E-mail para contato](gabrielmoreira@gec.inatel.br)
-- Leonardo Silva de Souza - [E-mail para contato](leonardosilva@gec.inatel.br)
+- Danilo Vidal Ribeiro - E-mail para contato: danilo.vidal@gec.inatel.br
+- Francielly Marianne Laranjo Silva - E-mail para contato: francielly.laranjo@gec.inatel.br
+- Gabriel Moreira Peixoto Diniz - E-mail para contato: gabrielmoreira@gec.inatel.br
+- Leonardo Silva de Souza - E-mail para contato: leonardosilva@gec.inatel.br
 
 ## Ferramentas utilizadas :computer:
 
