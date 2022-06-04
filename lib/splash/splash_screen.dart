@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:artefato/home/home.dart';
 import 'package:artefato/home/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,23 +38,24 @@ class _SplashLoginState extends State<SplashLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0x1E1E1E),
-      body: Stack(
-        children: <Widget>[
-          Center(
-            child: SizedBox(
-              width: 180,
-              height: 38,
-              child: Text("Artefato",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Butler",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 32.0),
-                  textAlign: TextAlign.center),
-            ),
-          ),
-        ],
+      appBar: AppBar(
+        backgroundColor: Color(0x1E1E1E),
+        title: Image.asset(
+          'assets/top_splash.png',
+          fit: BoxFit.cover,
+        ),
+      ),
+      body: Center(
+        child: Stack(
+          children: [
+            Center(child: Image.asset('assets/background_artefato.png')),
+            Center(child: Image.asset('assets/artefato.png')),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Image.asset(
+        'assets/bottom_splash.png',
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -67,6 +69,7 @@ class SplashHome extends StatefulWidget {
 }
 
 class _SplashHomeState extends State<SplashHome> {
+  Configs configs = Configs();
   @override
   void initState() {
     //getValues(); dados de login
@@ -83,8 +86,8 @@ class _SplashHomeState extends State<SplashHome> {
 
     Future.delayed(Duration(seconds: 3)).then(
       (_) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => HomeScreen(configs)));
       },
     );
   }

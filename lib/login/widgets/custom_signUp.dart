@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class CustomSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: 30,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Expanded(
             flex: 0,
@@ -20,30 +20,29 @@ class CustomSignUp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 13,
               ),
             ),
           ),
-          SizedBox(
-            width: 75,
-            child: FlatButton(
-              padding: EdgeInsets.all(0),
-              child: Text(
-                "Cadastre-se",
-                style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Raleway",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.left,
+          FlatButton(
+            child: Text(
+              "Cadastre-se",
+              style: TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Raleway",
+                fontStyle: FontStyle.normal,
+                fontSize: 13,
               ),
-              onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => SingUpScreen())); //Trocar para cadastro
-              },
+              textAlign: TextAlign.center,
             ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SingUpScreen())); //Trocar para cadastro
+            },
           ),
         ],
       ),

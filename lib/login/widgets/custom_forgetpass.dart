@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class CustomForgetpass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: 30,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Expanded(
             flex: 0,
@@ -20,30 +20,26 @@ class CustomForgetpass extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 13,
               ),
             ),
           ),
-          SizedBox(
-            width: 70,
-            child: FlatButton(
-              padding: EdgeInsets.all(0),
-              child: Text(
-                "Clique aqui",
-                style: TextStyle(
-                  color: Colors.green,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "Raleway",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 12,
-                ),
-                textAlign: TextAlign.left,
+          FlatButton(
+            child: Text(
+              "Clique aqui",
+              style: TextStyle(
+                color: Colors.green,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Raleway",
+                fontStyle: FontStyle.normal,
+                fontSize: 13,
               ),
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ForgetPassword()));
-              },
+              textAlign: TextAlign.center,
             ),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ForgetPassword()));
+            },
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
+import 'package:artefato/home/home.dart';
 import 'package:artefato/home/homeScreen.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_login.dart';
@@ -20,6 +21,7 @@ class _SingUpScreenState extends State<SingUpScreen>
       new RoundedLoadingButtonController();
 
   String? _emailTxt, _senhaTxt;
+  Configs configs = new Configs();
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +184,7 @@ class _SingUpScreenState extends State<SingUpScreen>
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  HomeScreen()));
+                                                  HomeScreen(configs)));
                                     },
                                   );
                                 } else if (responseLogin == 2) {
