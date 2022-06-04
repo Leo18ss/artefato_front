@@ -14,9 +14,9 @@ dependencies:
   rounded_loading_button: any
   shared_preferences: any
   cupertino_icons: any
-  fancy_bottom_navigation: ^0.3.2
-  google_fonts: ^3.0.1
-  day_night_switcher: ^0.2.0+1
+  fancy_bottom_navigation: any
+  google_fonts: any
+  day_night_switcher: any
   dio: any
 
 
