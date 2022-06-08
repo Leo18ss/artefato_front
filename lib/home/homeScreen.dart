@@ -3,6 +3,8 @@ import 'package:artefato/home/home.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:like_button/like_button.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
@@ -183,27 +185,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  IconButton(
-                                    icon: Icon(
-                                      Icons.favorite,
-                                      color: likedColor,
-                                    ),
-                                    onPressed: () {
-                                      print("likedColor: $likedColor");
-                                      print("Colors.grey: ${Colors.grey}");
-
-                                      if (likedColor == Colors.grey) {
-                                        setState(() {
-                                          likedColor = Colors.red;
-                                        });
-                                      } else {
-                                        setState(() {
-                                          likedColor = Colors.grey;
-                                        });
-                                      }
-
-                                      print(likedColor);
-                                    },
+                                  LikeButton(
+                                    likeCount: 0,
+                                    circleColor: CircleColor(
+                                        start: Colors.grey.shade700,
+                                        end: Color(0xff0099cc)),
                                   ),
                                   IconButton(
                                     icon: Icon(
@@ -286,7 +272,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Icons.send,
                                       color: Colors.grey.shade700,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Share.share(
+                                          'Pensando em vender sua arte? Acesse https://example.com',
+                                          subject: 'Olha que legal!!!');
+                                    },
                                   ),
                                 ],
                               ),

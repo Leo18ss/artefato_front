@@ -18,7 +18,8 @@ dependencies:
   google_fonts: any
   day_night_switcher: any
   dio: any
-
+  share_plus: any
+  like_button: any
 
 dev_dependencies:
   flutter_test:
