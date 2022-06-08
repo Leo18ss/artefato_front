@@ -6,7 +6,8 @@ import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_login.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../conexoes.dart';
+import '../API REST/conexoes_antigas.dart';
+import '../API REST/user/conexoesUser.dart';
 
 class SingUpScreen extends StatefulWidget {
   @override

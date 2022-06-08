@@ -6,7 +6,8 @@ import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../conexoes.dart';
+import '../API REST/conexoes_antigas.dart';
+import '../API REST/user/conexoesUser.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -134,68 +135,48 @@ class _LoginScreenState extends State<LoginScreen>
                             ),
                             color: Colors.brown,
                             onPressed: () async {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()));
-                              // if (_formKey.currentState!.validate()) {
-                              //   Timer(
-                              //     Duration(seconds: 1),
-                              //     () async {
-                              //       int responseLogin;
-                              //       responseLogin =
-                              //           await postLogin(_emailTxt!, _senhaTxt!);
-                              //       if (responseLogin == 1) {
-                              //         _btnController.success();
-                              //         Future.delayed(Duration(seconds: 2)).then(
-                              //           (_) {
-                              //             Navigator.pushReplacement(
-                              //                 context,
-                              //                 MaterialPageRoute(
-                              //                     builder: (context) =>
-                              //                         HomeScreen()));
-                              //           },
-                              //         );
-                              //       } else if (responseLogin == 2) {
-                              //         _btnController.error();
-                              //         // sendNotification(
-                              //         //   text: "E-mail não confirmado!",
-                              //         //   icon: Icons.error,
-                              //         //   context: context,
-                              //         //   size: 16,
-                              //         // );
-                              //         _btnController.reset();
-                              //       } else if (responseLogin == 0) {
-                              //         _btnController.error();
-                              //         // sendNotification(
-                              //         //   text: "E-mail ou senha incorretos.",
-                              //         //   icon: Icons.error,
-                              //         //   context: context,
-                              //         //   size: 16,
-                              //         // );
-                              //         _btnController.reset();
-                              //       } else {
-                              //         _btnController.error();
-                              //         // sendNotification(
-                              //         //   text:
-                              //         //       "Sem conexão com o servidor, tente novamente em alguns instantes!",
-                              //         //   icon: Icons.error,
-                              //         //   context: context,
-                              //         //   size: 16,
-                              //         // );
-                              //         _btnController.reset();
-                              //       }
-                              //     },
-                              //   );
-                              // } else {
-                              //   _btnController.error();
-                              //   Future.delayed(
-                              //     Duration(seconds: 2),
-                              //     () {
-                              //       _btnController.reset();
-                              //     },
-                              //   );
-                              // }
+                              // Navigator.pushReplacement(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => Home()));
+                              if (_formKey.currentState!.validate()) {
+                                Timer(
+                                  Duration(seconds: 1),
+                                  () async {
+                                    int responseLogin;
+                                    responseLogin =
+                                        await postLogin(_emailTxt!, _senhaTxt!);
+                                    if (responseLogin == 1) {
+                                      _btnController.success();
+                                      Future.delayed(Duration(seconds: 2)).then(
+                                        (_) {
+                                          Navigator.pushReplacement(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      Home()));
+                                        },
+                                      );
+                                    } else {
+                                      _btnController.error();
+
+                                      print(
+                                        "Login ou senha incorreto.",
+                                      );
+
+                                      _btnController.reset();
+                                    }
+                                  },
+                                );
+                              } else {
+                                _btnController.error();
+                                Future.delayed(
+                                  Duration(seconds: 2),
+                                  () {
+                                    _btnController.reset();
+                                  },
+                                );
+                              }
                             },
                           ),
                         ),

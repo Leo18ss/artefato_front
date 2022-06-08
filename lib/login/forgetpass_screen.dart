@@ -5,7 +5,7 @@ import 'package:artefato/login/widgets/custom_login.dart';
 import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../conexoes.dart';
+import '../API REST/conexoes_antigas.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
