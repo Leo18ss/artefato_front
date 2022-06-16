@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(top: 60),
+                        padding: const EdgeInsets.only(top: 40),
                         child: Text(
                           "Artefato",
                           style: GoogleFonts.playball(
@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 40),
+                        padding: const EdgeInsets.only(top: 20),
                         child: Text(
                           "Entrar",
                           style: GoogleFonts.roboto(
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 25, left: 30, right: 30),
+                            const EdgeInsets.only(top: 10, left: 30, right: 30),
                         child: TextFormField(
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(top: 20, left: 30, right: 30),
+                            const EdgeInsets.only(top: 15, left: 30, right: 30),
                         child: TextFormField(
                           obscureText: true,
                           keyboardType: TextInputType.visiblePassword,
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 50),
+                        padding: const EdgeInsets.only(top: 25),
                         child: SizedBox(
                           height: 48.0,
                           width: 146.0,
@@ -135,10 +135,11 @@ class _LoginScreenState extends State<LoginScreen>
                             ),
                             color: Colors.brown,
                             onPressed: () async {
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => Home()));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Home()));
+                              return;
                               if (_formKey.currentState!.validate()) {
                                 Timer(
                                   Duration(seconds: 1),
@@ -182,10 +183,17 @@ class _LoginScreenState extends State<LoginScreen>
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 40),
+                        padding: const EdgeInsets.only(top: 10),
                         child: CustomForgetpass(),
                       ),
                       CustomSignUp(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: Image.asset(
+                          "assets/img_login.png",
+                          width: MediaQuery.of(context).size.width * 0.38,
+                        ),
+                      ),
                     ],
                   ),
                 ),

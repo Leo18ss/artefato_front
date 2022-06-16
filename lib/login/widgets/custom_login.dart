@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 class CustomLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: 30,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Expanded(
             flex: 0,

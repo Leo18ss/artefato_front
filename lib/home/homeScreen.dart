@@ -1,6 +1,7 @@
 // import 'package:shared_preferences/shared_preferences.dart';
+import 'package:artefato/API%20REST/user/config.dart';
+import 'package:artefato/home/data_mocks.dart';
 import 'package:artefato/home/home.dart';
-import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
@@ -58,8 +59,47 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> ListCardsPublication(isDarkModeEnabled) {
     int i = 1;
     List<Widget> listCardsPublication = [];
-    for (i = 0; i < 10; i++) {
-      Color likedColor = Colors.red;
+    List<Person> persons = [];
+    Person people1 = Person();
+    Person people2 = Person();
+    Person people3 = Person();
+    people1.setPersonImg("assets/person.jpg");
+    people1.setNick("@Josy_silver");
+    people1.setCity("new york | USA");
+    people1.setStatus("indisponível");
+    people1.setSale("não está à venda");
+    people1.setMediaPublication("assets/img_pub.png");
+    people1.setStatusPublication("19k curtidas - 1291 comentários");
+    people1.setAuth("bottlebeach");
+    people1.setDescription(
+        "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
+
+    people2.setPersonImg("assets/person2.png");
+    people2.setNick("@Josy_silver");
+    people2.setCity("new york | USA");
+    people2.setStatus("indisponível");
+    people2.setSale("não está à venda");
+    people2.setMediaPublication("assets/img_pub2.png");
+    people2.setStatusPublication("19k curtidas - 1291 comentários");
+    people2.setAuth("bottlebeach");
+    people2.setDescription(
+        "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
+
+    people3.setPersonImg("assets/person3.png");
+    people3.setNick("@Josy_silver");
+    people3.setCity("new york | USA");
+    people3.setStatus("indisponível");
+    people3.setSale("não está à venda");
+    people3.setMediaPublication("assets/img_pub3.png");
+    people3.setStatusPublication("19k curtidas - 1291 comentários");
+    people3.setAuth("bottlebeach");
+    people3.setDescription(
+        "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
+
+    persons.add(people1);
+    persons.add(people2);
+    persons.add(people3);
+    for (i = 0; i < persons.length; i++) {
       listCardsPublication.add(
         Padding(
           padding:
@@ -97,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: CircleAvatar(
                             radius: 20,
                             backgroundImage: Image.asset(
-                              "assets/person.jpg",
+                              persons[i].person_img!,
                             ).image,
                           ),
                         ),
@@ -105,14 +145,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Text(
-                            "@Josy_silver",
+                            persons[i].nick!,
                             style: TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            "new york | USA",
+                            persons[i].city!,
                             style: TextStyle(fontSize: 12),
                           ),
                         ],
@@ -122,14 +162,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Column(
                           children: [
                             Text(
-                              "indisponível",
+                              persons[i].status!,
                               style: TextStyle(
                                 color: Colors.blue,
                                 fontSize: 16,
                               ),
                             ),
                             Text(
-                              "não está à venda",
+                              persons[i].sale!,
                               style: TextStyle(fontSize: 12),
                             ),
                           ],
@@ -144,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Image(
                           width: double.infinity,
-                          image: AssetImage("assets/img_pub.png"),
+                          image: AssetImage(persons[i].media_publication!),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -155,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Row(
                             children: [
                               Text(
-                                "19k curtidas - 1291 comentários",
+                                persons[i].status_publication!,
                                 style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold,
@@ -176,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: const EdgeInsets.only(right: 20),
                             child: Container(
                               height: 40,
-                              width: 150,
+                              width: 160,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(color: Colors.grey.shade300),
@@ -270,12 +310,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                   IconButton(
                                     icon: Icon(
                                       Icons.send,
-                                      color: Colors.grey.shade700,
+                                      color: Colors.blue.shade700,
                                     ),
                                     onPressed: () {
                                       Share.share(
-                                          'Pensando em vender sua arte? Acesse https://example.com',
-                                          subject: 'Olha que legal!!!');
+                                        'Pensando em vender sua arte? Acesse https://example.com',
+                                        subject: 'Olha que legal!!!',
+                                        // sharePositionOrigin: ,
+                                      );
                                     },
                                   ),
                                 ],
@@ -295,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                       child: Text.rich(
                     TextSpan(
-                      text: "bottlebeach",
+                      text: persons[i].auth!,
                       style: TextStyle(fontWeight: FontWeight.bold),
                       // default text style
                       children: <TextSpan>[
@@ -304,8 +346,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(fontWeight: FontWeight.normal),
                         ),
                         TextSpan(
-                          text:
-                              "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.",
+                          text: persons[i].description!,
                           style: TextStyle(fontWeight: FontWeight.normal),
                         ),
                       ],
@@ -349,20 +390,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           actions: <Widget>[
-            DayNightSwitcherIcon(
-              isDarkModeEnabled: widget.configs.isDarkModeEnabled,
-              onStateChanged: (isDarkModeEnabled) {
-                setState(() {
-                  widget.configs.setDarkMode(isDarkModeEnabled);
-                });
-              },
-            ),
             IconButton(
               icon: Icon(
                 Icons.settings,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ConfigScreen(widget.configs),
+                  ),
+                );
+              },
             )
           ],
         ),
