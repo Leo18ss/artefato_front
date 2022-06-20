@@ -20,11 +20,12 @@ class CustomForgetpass extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 17,
               ),
             ),
           ),
           FlatButton(
+            padding: EdgeInsets.all(5),
             child: Text(
               "Clique aqui",
               style: TextStyle(
@@ -32,7 +33,7 @@ class CustomForgetpass extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 16,
               ),
               textAlign: TextAlign.center,
             ),

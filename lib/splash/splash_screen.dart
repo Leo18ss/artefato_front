@@ -99,18 +99,14 @@ class _SplashHomeState extends State<SplashHome> {
       body: Stack(
         children: <Widget>[
           Center(
-            child: SizedBox(
-              width: 102,
-              height: 38,
-              child: Text("Artefato",
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "Butler",
-                      fontStyle: FontStyle.normal,
-                      fontSize: 32.0),
-                  textAlign: TextAlign.center),
-            ),
+            child: Text("Artefato",
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "Butler",
+                    fontStyle: FontStyle.normal,
+                    fontSize: 32.0),
+                textAlign: TextAlign.center),
           ),
         ],
       ),

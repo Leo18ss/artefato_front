@@ -1,6 +1,7 @@
-import 'package:artefato/API%20REST/user/newItemScreen.dart';
-import 'package:artefato/API%20REST/user/profileScreen.dart';
+import 'package:artefato/home/newItemScreen.dart';
+import 'package:artefato/home/profileScreen.dart';
 import 'package:artefato/home/homeScreen.dart';
+import 'package:artefato/home/profileScreen.dart';
 import 'package:artefato/login/singup_screen%20copy.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
@@ -200,7 +201,7 @@ class _HomeState extends State<Home> {
                   ),
                   TabData(
                       iconData: Icons.home,
-                      title: "Home",
+                      title: "Feed",
                       onclick: () {
                         final FancyBottomNavigationState fState =
                             bottomNavigationKey.currentState
@@ -209,7 +210,7 @@ class _HomeState extends State<Home> {
                       }),
                   TabData(
                     iconData: Icons.person,
-                    title: "Configurações",
+                    title: "Perfil",
                   )
                 ],
                 initialSelection: 1,

@@ -49,7 +49,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 "Configuração",
                 textAlign: TextAlign.center,
@@ -83,7 +83,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       ),
                       Text(
                         widget.configs.isDarkModeEnabled
-                            ? "Ativar modo light"
+                            ? "Ativar modo claro"
                             : "Ativar modo noturno",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -127,18 +127,18 @@ class _ConfigScreenState extends State<ConfigScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 200),
+              padding: const EdgeInsets.only(top: 120),
               child: Text(
                 "Feito por:",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.roboto(
-                    fontSize: 16, fontWeight: FontWeight.bold),
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Text(
-                "Danilo Vidal Ribeiro,\nFrancielly Marianne Laranjo Silva,\nGabriel Moreira Peixoto Diniz,\nLeonardo Silva de Souza",
+                "Danilo Vidal Ribeiro;\nFrancielly Marianne Laranjo Silva;\nGabriel Moreira Peixoto Diniz;\nLeonardo Silva de Souza.",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.roboto(fontSize: 18),
               ),

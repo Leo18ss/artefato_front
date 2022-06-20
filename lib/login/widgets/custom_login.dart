@@ -6,7 +6,7 @@ class CustomLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 35,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -20,12 +20,12 @@ class CustomLogin extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 16,
               ),
             ),
           ),
           SizedBox(
-            width: 105,
+            width: 140,
             child: FlatButton(
               padding: EdgeInsets.all(0),
               child: Text(
@@ -35,7 +35,7 @@ class CustomLogin extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   fontFamily: "Raleway",
                   fontStyle: FontStyle.normal,
-                  fontSize: 12,
+                  fontSize: 16,
                 ),
                 textAlign: TextAlign.left,
               ),

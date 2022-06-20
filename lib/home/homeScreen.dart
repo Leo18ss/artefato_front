@@ -1,5 +1,5 @@
 // import 'package:shared_preferences/shared_preferences.dart';
-import 'package:artefato/API%20REST/user/config.dart';
+import 'package:artefato/home/config.dart';
 import 'package:artefato/home/data_mocks.dart';
 import 'package:artefato/home/home.dart';
 import 'package:flutter/material.dart';

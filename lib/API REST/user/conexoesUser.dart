@@ -142,3 +142,9 @@ Future<int> postLogin(String _email, String _pass) async {
   // }
   return 1;
 }
+
+Future<int> postForgetPass(String _email) async {
+
+  return 1;
+}
+

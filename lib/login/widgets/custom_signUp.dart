@@ -6,7 +6,7 @@ class CustomSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30,
+      height: 25,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -20,11 +20,12 @@ class CustomSignUp extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 16,
               ),
             ),
           ),
           FlatButton(
+            padding: EdgeInsets.all(5),
             child: Text(
               "Cadastre-se",
               style: TextStyle(
@@ -32,7 +33,7 @@ class CustomSignUp extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontFamily: "Raleway",
                 fontStyle: FontStyle.normal,
-                fontSize: 12,
+                fontSize: 16,
               ),
               textAlign: TextAlign.center,
             ),
@@ -41,7 +42,7 @@ class CustomSignUp extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          SingUpScreen())); //Trocar para cadastro
+                          SingUpScreen()));
             },
           ),
         ],

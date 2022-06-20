@@ -6,7 +6,6 @@ import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../API REST/conexoes_antigas.dart';
 import '../API REST/user/conexoesUser.dart';
 
 class LoginScreen extends StatefulWidget {
