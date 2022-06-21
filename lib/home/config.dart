@@ -29,21 +29,6 @@ class _ConfigScreenState extends State<ConfigScreen> {
             textStyle: TextStyle(fontSize: 38),
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => ConfigScreen(widget.configs),
-                ),
-              );
-            },
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -53,7 +38,11 @@ class _ConfigScreenState extends State<ConfigScreen> {
               child: Text(
                 "Configuração",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 36),
+                style: GoogleFonts.roboto(fontSize: 36,
+                color: widget.configs.isDarkModeEnabled
+                        ? Colors.white70
+                        : Colors.grey.shade700,
+                ),        
               ),
             ),
             Center(
@@ -88,6 +77,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
+                          color: widget.configs.isDarkModeEnabled
+                        ? Colors.white70
+                        : Colors.grey.shade700,
                         ),
                       ),
                       Padding(
@@ -132,7 +124,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
                 "Feito por:",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.roboto(
-                    fontSize: 20, fontWeight: FontWeight.bold),
+                    fontSize: 20, fontWeight: FontWeight.bold, color: widget.configs.isDarkModeEnabled
+                        ? Colors.white70
+                        : Colors.grey.shade800,),
               ),
             ),
             Padding(
@@ -140,7 +134,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
               child: Text(
                 "Danilo Vidal Ribeiro;\nFrancielly Marianne Laranjo Silva;\nGabriel Moreira Peixoto Diniz;\nLeonardo Silva de Souza.",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 18),
+                style: GoogleFonts.roboto(fontSize: 18, color: widget.configs.isDarkModeEnabled
+                        ? Colors.white60
+                        : Colors.grey.shade800,),
               ),
             ),
             Padding(
@@ -148,99 +144,6 @@ class _ConfigScreenState extends State<ConfigScreen> {
               child: Image.asset("assets/logo_inatel.png"),
             ),
           ],
-        ),
-      ),
-    );
-
-    Scaffold(
-      backgroundColor: widget.configs.isDarkModeEnabled
-          ? Colors.grey.shade800
-          : Colors.grey.shade300,
-      appBar: AppBar(
-        backgroundColor:
-            widget.configs.isDarkModeEnabled ? Colors.black54 : Colors.pink,
-        title: Text(
-          "Artefato",
-          style: GoogleFonts.playball(
-            textStyle: TextStyle(fontSize: 38),
-          ),
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(40),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.75,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey.shade400,
-              ),
-              color: widget.configs.isDarkModeEnabled
-                  ? Colors.grey.shade600
-                  : Colors.pink.shade50,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        widget.configs.isDarkModeEnabled
-                            ? "Ativar modo light"
-                            : "Ativar modo noturno",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      DayNightSwitcher(
-                        isDarkModeEnabled: widget.configs.isDarkModeEnabled,
-                        onStateChanged: (isDarkModeEnabled) {
-                          setState(() {
-                            widget.configs.setDarkMode(isDarkModeEnabled);
-                          });
-                        },
-                        sunColor: Colors.amberAccent.shade200,
-                        moonColor: Colors.yellow,
-                        dayBackgroundColor: Colors.pink.shade400,
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(
-                            builder: (context) => SingUpScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Alterar senha",
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: widget.configs.isDarkModeEnabled
-                            ? Colors.grey.shade800
-                            : Colors.pink, //background color
-                        onPrimary: Colors.white, //ripple color
-                      )),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

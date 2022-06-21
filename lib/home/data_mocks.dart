@@ -5,7 +5,6 @@ class Person {
   String? status;
   String? sale;
   String? media_publication;
-  String? status_publication;
   String? auth;
   String? description;
 
@@ -33,10 +32,6 @@ class Person {
     this.media_publication = media_publication;
   }
 
-  void setStatusPublication(String status_publication) {
-    this.status_publication = status_publication;
-  }
-
   void setAuth(String auth) {
     this.auth = auth;
   }
@@ -51,7 +46,6 @@ class Person {
       this.city,
       this.status,
       this.sale,
-      this.status_publication,
       this.auth,
       this.description});
 }

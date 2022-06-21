@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'package:artefato/home/home.dart';
 import 'package:artefato/home/homeScreen.dart';
+import 'package:artefato/login/login_screen.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_login.dart';
 import 'package:flutter/material.dart';
@@ -174,20 +175,11 @@ class _SingUpScreenState extends State<SingUpScreen>
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    HomeScreen(configs)));
+                                                    LoginScreen()));
                                       },
                                     );
-                                  } else if (responseLogin == 2) {
-                                    _btnController.error();
-                               
-                                    _btnController.reset();
-                                  } else if (responseLogin == 0) {
-                                    _btnController.error();
-                                   
-                                    _btnController.reset();
                                   } else {
                                     _btnController.error();
-                                
                                     _btnController.reset();
                                   }
                                 },

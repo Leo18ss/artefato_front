@@ -6,7 +6,6 @@ import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-
 import '../API REST/user/conexoesUser.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -96,7 +95,7 @@ class _ForgetPasswordState extends State<ForgetPassword>
                           controller: _btnController,
                           valueColor: Colors.pink,
                           child: Text(
-                            "Entrar",
+                            "Recuperar",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w700,
@@ -124,17 +123,8 @@ class _ForgetPasswordState extends State<ForgetPassword>
                                                     LoginScreen()));
                                       },
                                     );
-                                  } else if (responseLogin == 2) {
-                                    _btnController.error();
-
-                                    _btnController.reset();
-                                  } else if (responseLogin == 0) {
-                                    _btnController.error();
-
-                                    _btnController.reset();
                                   } else {
                                     _btnController.error();
-
                                     _btnController.reset();
                                   }
                                 },

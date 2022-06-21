@@ -159,11 +159,9 @@ class _LoginScreenState extends State<LoginScreen>
                                       );
                                     } else {
                                       _btnController.error();
-
                                       print(
                                         "Login ou senha incorreto.",
                                       );
-
                                       _btnController.reset();
                                     }
                                   },

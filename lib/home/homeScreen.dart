@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final style = TextStyle(fontSize: 38);
+  final style2 = TextStyle(fontSize: 22, fontWeight: FontWeight.w400);
 
   @override
   void initState() {
@@ -69,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
     people1.setStatus("indisponível");
     people1.setSale("não está à venda");
     people1.setMediaPublication("assets/img_pub.png");
-    people1.setStatusPublication("19k curtidas - 1291 comentários");
     people1.setAuth("bottlebeach");
     people1.setDescription(
         "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
@@ -80,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
     people2.setStatus("indisponível");
     people2.setSale("não está à venda");
     people2.setMediaPublication("assets/img_pub2.png");
-    people2.setStatusPublication("19k curtidas - 1291 comentários");
     people2.setAuth("bottlebeach");
     people2.setDescription(
         "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
@@ -91,7 +90,6 @@ class _HomeScreenState extends State<HomeScreen> {
     people3.setStatus("indisponível");
     people3.setSale("não está à venda");
     people3.setMediaPublication("assets/img_pub3.png");
-    people3.setStatusPublication("19k curtidas - 1291 comentários");
     people3.setAuth("bottlebeach");
     people3.setDescription(
         "bottlebeach mais uma belissíma coleção de garrafinhas com as mais belas artes. Confira mais aqui na bio.");
@@ -193,15 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             right: 20,
                           ),
                           child: Row(
-                            children: [
-                              Text(
-                                persons[i].status_publication!,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                            children: [],
                           ),
                         ),
                       ],
@@ -249,23 +239,61 @@ class _HomeScreenState extends State<HomeScreen> {
                                             "Comentário",
                                           ),
                                         ),
-                                        content: Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: Colors.grey.shade400,
+                                        content: Center(
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 20),
+                                            child: Container(
+                                              height: 200,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.8,
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                color: widget.configs
+                                                        .isDarkModeEnabled
+                                                    ? Colors.grey.shade600
+                                                    : Colors.grey.shade300,
+                                              ),
+                                              child: Column(children: [
+                                                Center(
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            top: 20),
+                                                    child: Text(
+                                                      "Este é seu código PIX para o pagamento",
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: GoogleFonts.cairo(
+                                                        textStyle: style2,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ]),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                          ),
-                                          child: TextField(
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            textInputAction:
-                                                TextInputAction.newline,
-                                            minLines: 1,
-                                            maxLines: 5,
                                           ),
                                         ),
+                                        // content: Container(
+                                        //   decoration: BoxDecoration(
+                                        //     border: Border.all(
+                                        //       color: Colors.grey.shade400,
+                                        //     ),
+                                        //     borderRadius:
+                                        //         BorderRadius.circular(5),
+                                        //   ),
+                                        //   child: TextField(
+                                        //     keyboardType:
+                                        //         TextInputType.multiline,
+                                        //     textInputAction:
+                                        //         TextInputAction.newline,
+                                        //     minLines: 1,
+                                        //     maxLines: 5,
+                                        //   ),
+                                        // ),
                                         actions: [
                                           Row(
                                             crossAxisAlignment:
@@ -359,6 +387,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     }
+
     return listCardsPublication;
   }
 

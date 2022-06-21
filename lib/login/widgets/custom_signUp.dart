@@ -38,7 +38,7 @@ class CustomSignUp extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
