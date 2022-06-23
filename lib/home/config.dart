@@ -38,11 +38,12 @@ class _ConfigScreenState extends State<ConfigScreen> {
               child: Text(
                 "Configuração",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 36,
-                color: widget.configs.isDarkModeEnabled
-                        ? Colors.white70
-                        : Colors.grey.shade700,
-                ),        
+                style: GoogleFonts.roboto(
+                  fontSize: 36,
+                  color: widget.configs.isDarkModeEnabled
+                      ? Colors.white70
+                      : Colors.grey.shade700,
+                ),
               ),
             ),
             Center(
@@ -73,13 +74,13 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       Text(
                         widget.configs.isDarkModeEnabled
                             ? "Ativar modo claro"
-                            : "Ativar modo noturno",
+                            : "Ativar modo escuro",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                           color: widget.configs.isDarkModeEnabled
-                        ? Colors.white70
-                        : Colors.grey.shade700,
+                              ? Colors.white70
+                              : Colors.grey.shade700,
                         ),
                       ),
                       Padding(
@@ -124,9 +125,12 @@ class _ConfigScreenState extends State<ConfigScreen> {
                 "Feito por:",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.roboto(
-                    fontSize: 20, fontWeight: FontWeight.bold, color: widget.configs.isDarkModeEnabled
-                        ? Colors.white70
-                        : Colors.grey.shade800,),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: widget.configs.isDarkModeEnabled
+                      ? Colors.white70
+                      : Colors.grey.shade800,
+                ),
               ),
             ),
             Padding(
@@ -134,14 +138,20 @@ class _ConfigScreenState extends State<ConfigScreen> {
               child: Text(
                 "Danilo Vidal Ribeiro;\nFrancielly Marianne Laranjo Silva;\nGabriel Moreira Peixoto Diniz;\nLeonardo Silva de Souza.",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 18, color: widget.configs.isDarkModeEnabled
-                        ? Colors.white60
-                        : Colors.grey.shade800,),
+                style: GoogleFonts.roboto(
+                  fontSize: 18,
+                  color: widget.configs.isDarkModeEnabled
+                      ? Colors.white60
+                      : Colors.grey.shade800,
+                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 30),
-              child: Image.asset("assets/logo_inatel.png"),
+              child: Image.asset(
+                "assets/logo_inatel.png",
+                width: MediaQuery.of(context).size.width * 0.65,
+              ),
             ),
           ],
         ),

@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io' as Io;
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
 import 'dart:async';
@@ -74,31 +77,13 @@ Future<int> createProduct(
   }
 }
 
-Future<int> purshaseProduct(
-    String _isAvaliable,
-    String _name,
-    String _description,
-    String _idCrafter,
-    String _imageURL,
-    String _price) async {
-  FormData formData;
-  formData = new FormData.fromMap(
-      {"isAvailable": true, "buyerId": "_buyerId", "productId": "_productId"});
+Future<dynamic> purshaseProduct() async {
   var url = '$_artefatoURL/product/purchase';
-  var responseRegister = await _dio.post(url,
-      options: Options(
-          followRedirects: false,
-          validateStatus: (status) {
-            return status! < 500;
-          }),
-      data: formData);
-
-  if (responseRegister.statusCode == 200) {
-    return 1;
-  } else if (responseRegister.statusCode != 200 &&
-      responseRegister.statusCode != 500) {
-    return 0;
-  } else {
-    return -1;
-  }
+  var responseRegister = await _dio.post(url, data: {
+    "buyerId": "52eeb5f4-43a6-4306-afb0-cb588e0dcd79",
+    "productId": "8f0577aa-57a5-4596-9e88-18a76c899214"
+  });
+  String imageBase64 = responseRegister.data['paymentInfo']['qrbase64'];
+  imageBase64 = imageBase64.replaceFirst("data:image/png;base64,", "");
+  return imageBase64;
 }

@@ -1,7 +1,12 @@
+import 'package:flutter/material.dart';
+
 class Person {
   String? person_img;
   String? nick;
   String? city;
+  bool? is_follower;
+  Color followerColor = Colors.blue.shade900;
+  String? followerText;
   String? status;
   String? sale;
   String? media_publication;
@@ -14,6 +19,18 @@ class Person {
 
   void setNick(String nick) {
     this.nick = nick;
+  }
+
+  void setIsFollower(bool is_follower) {
+    this.is_follower = is_follower;
+  }
+
+  void setFollowerCollor(Color followerColor) {
+    this.followerColor = followerColor;
+  }
+
+  void setFollowerText(String followerText) {
+    this.followerText = followerText;
   }
 
   void setCity(String city) {
@@ -44,6 +61,9 @@ class Person {
       {this.person_img,
       this.nick,
       this.city,
+      this.is_follower,
+      // this.followerColor,
+      this.followerText,
       this.status,
       this.sale,
       this.auth,

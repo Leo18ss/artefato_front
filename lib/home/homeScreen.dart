@@ -1,4 +1,7 @@
 // import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+
+import 'package:artefato/API%20REST/product/conexoesProduct.dart';
 import 'package:artefato/home/config.dart';
 import 'package:artefato/home/data_mocks.dart';
 import 'package:artefato/home/home.dart';
@@ -26,36 +29,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  // List<Widget> RowUserStatus() {
-  //   int j = 0;
-  //   List<Widget> rowUserStatus = [];
-  //   for (j = 0; j < 2; j++) {
-  //     List<Widget> rowUserStatus = [];
-  //     rowUserStatus.add(
-  //       Container(
-  //         decoration: BoxDecoration(
-  //           color: Colors.white,
-  //           shape: BoxShape.circle,
-  //           boxShadow: [
-  //             BoxShadow(
-  //               blurRadius: 2,
-  //               color: Colors.grey.shade400,
-  //               spreadRadius: 3,
-  //             )
-  //           ],
-  //         ),
-  //         child: CircleAvatar(
-  //           radius: 20,
-  //           backgroundColor: Colors.red,
-  //           backgroundImage: Image.asset(
-  //             "assets/person.jpg",
-  //           ).image,
-  //         ),
-  //       ),
-  //     );
-  //   }
-  //   return rowUserStatus;
-  // }
+  Image imageFromBase64String(String base64String) {
+    return Image.memory(base64Decode(base64String));
+  }
 
   List<Widget> ListCardsPublication(isDarkModeEnabled) {
     int i = 1;
@@ -64,10 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
     Person people1 = Person();
     Person people2 = Person();
     Person people3 = Person();
+
     people1.setPersonImg("assets/person.jpg");
     people1.setNick("@Josy_silver");
     people1.setCity("new york | USA");
     people1.setStatus("indisponível");
+    people1.setIsFollower(true);
+    people1.setFollowerCollor(Colors.blue.shade900);
+    people1.setFollowerText("Seguir");
     people1.setSale("não está à venda");
     people1.setMediaPublication("assets/img_pub.png");
     people1.setAuth("bottlebeach");
@@ -77,7 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
     people2.setPersonImg("assets/person2.png");
     people2.setNick("@Josy_silver");
     people2.setCity("new york | USA");
-    people2.setStatus("indisponível");
+    people2.setIsFollower(true);
+    people2.setFollowerCollor(Colors.blue.shade900);
+    people2.setFollowerText("Seguindo");
+    people2.setStatus("Comprar agora");
     people2.setSale("não está à venda");
     people2.setMediaPublication("assets/img_pub2.png");
     people2.setAuth("bottlebeach");
@@ -87,7 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
     people3.setPersonImg("assets/person3.png");
     people3.setNick("@Josy_silver");
     people3.setCity("new york | USA");
-    people3.setStatus("indisponível");
+    people3.setIsFollower(true);
+    people3.setFollowerCollor(Colors.blue.shade900);
+    people3.setFollowerText("Seguindo");
+    people3.setStatus("Comprar agora");
     people3.setSale("não está à venda");
     people3.setMediaPublication("assets/img_pub3.png");
     people3.setAuth("bottlebeach");
@@ -97,6 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
     persons.add(people1);
     persons.add(people2);
     persons.add(people3);
+
+    var followerText = "Seguir";
+
     for (i = 0; i < persons.length; i++) {
       listCardsPublication.add(
         Padding(
@@ -141,6 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             persons[i].nick!,
@@ -153,17 +144,110 @@ class _HomeScreenState extends State<HomeScreen> {
                             persons[i].city!,
                             style: TextStyle(fontSize: 12),
                           ),
+                          InkWell(
+                            child: Text(
+                              persons[i].followerText!,
+                              style: TextStyle(
+                                color: persons[i].followerColor,
+                              ),
+                            ),
+                            onTap: () {
+                              // setState(() {
+                              //   if (followerText == "Seguir") {
+                              //     followerText = "Seguindo";
+                              //   } else {
+                              //     followerText = "Serguir";
+                              //   }
+                              // });
+                              print(persons[i - 1].is_follower!);
+                              print(persons[i - 1].followerText!);
+                              if (persons[i - 1].is_follower! == true) {
+                                setState(() => {
+                                      persons[i - 1].setIsFollower(false),
+                                      persons[i - 1].setFollowerText(
+                                        "Seguindo",
+                                      ),
+                                    });
+                              } else {
+                                setState(() => {
+                                      persons[i - 1].setIsFollower(true),
+                                      persons[i - 1].setFollowerText(
+                                        "Seguir",
+                                      ),
+                                    });
+                              }
+                              print(persons[i - 1].is_follower!);
+                              print(persons[i - 1].followerText!);
+                              print("***");
+                            },
+                          )
                         ],
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 35),
                         child: Column(
                           children: [
-                            Text(
-                              persons[i].status!,
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 16,
+                            InkWell(
+                              onTap: () async {
+                                var imgBase64 = await purshaseProduct();
+                                showDialog(
+                                  barrierDismissible: true,
+                                  context: context,
+                                  builder: (_) => AlertDialog(
+                                    backgroundColor: Colors.grey.shade300,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    content: Column(children: [
+                                      Text(
+                                        "Este é seu código PIX para o pagamento",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cairo(
+                                          textStyle: style2,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 40),
+                                        child: Image.memory(
+                                            base64Decode(imgBase64)),
+                                      ),
+                                      Text(
+                                        "A confirmação do pagamento pode levar algum tempo...",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.cairo(
+                                          textStyle: TextStyle(fontSize: 16),
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context,
+                                                  rootNavigator: true)
+                                              .pop('dialog');
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 5,
+                                          ),
+                                          child: Text("Voltar"),
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.brown
+                                              .shade600, //background color
+                                          onPrimary:
+                                              Colors.white, //ripple color
+                                        ),
+                                      ),
+                                    ]),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                persons[i].status!,
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 16,
+                                ),
                               ),
                             ),
                             Text(
@@ -239,61 +323,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                             "Comentário",
                                           ),
                                         ),
-                                        content: Center(
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 20),
-                                            child: Container(
-                                              height: 200,
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                color: widget.configs
-                                                        .isDarkModeEnabled
-                                                    ? Colors.grey.shade600
-                                                    : Colors.grey.shade300,
-                                              ),
-                                              child: Column(children: [
-                                                Center(
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            top: 20),
-                                                    child: Text(
-                                                      "Este é seu código PIX para o pagamento",
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: GoogleFonts.cairo(
-                                                        textStyle: style2,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ]),
+                                        content: Container(
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Colors.grey.shade400,
                                             ),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: TextField(
+                                            keyboardType:
+                                                TextInputType.multiline,
+                                            textInputAction:
+                                                TextInputAction.newline,
+                                            minLines: 1,
+                                            maxLines: 5,
                                           ),
                                         ),
-                                        // content: Container(
-                                        //   decoration: BoxDecoration(
-                                        //     border: Border.all(
-                                        //       color: Colors.grey.shade400,
-                                        //     ),
-                                        //     borderRadius:
-                                        //         BorderRadius.circular(5),
-                                        //   ),
-                                        //   child: TextField(
-                                        //     keyboardType:
-                                        //         TextInputType.multiline,
-                                        //     textInputAction:
-                                        //         TextInputAction.newline,
-                                        //     minLines: 1,
-                                        //     maxLines: 5,
-                                        //   ),
-                                        // ),
                                         actions: [
                                           Row(
                                             crossAxisAlignment:
