@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:artefato/home/home.dart';
-import 'package:artefato/home/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../login/login_screen.dart';
@@ -69,7 +68,6 @@ class SplashHome extends StatefulWidget {
 }
 
 class _SplashHomeState extends State<SplashHome> {
-  Configs configs = Configs();
   @override
   void initState() {
     super.initState();
@@ -85,8 +83,8 @@ class _SplashHomeState extends State<SplashHome> {
 
     Future.delayed(Duration(seconds: 3)).then(
       (_) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => HomeScreen(configs)));
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Home()));
       },
     );
   }

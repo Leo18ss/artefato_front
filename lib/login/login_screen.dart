@@ -1,13 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
-
 import 'package:artefato/home/home.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-
 import '../API REST/user/conexoesUser.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -137,11 +135,6 @@ class _LoginScreenState extends State<LoginScreen>
                             ),
                             color: Colors.brown,
                             onPressed: () async {
-                              // Navigator.pushReplacement(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => Home()));
-                              // return;
                               if (_formKey.currentState!.validate()) {
                                 Timer(
                                   Duration(seconds: 1),
