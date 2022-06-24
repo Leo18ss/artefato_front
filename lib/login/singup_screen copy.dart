@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
 import 'package:artefato/home/home.dart';
-import 'package:artefato/home/homeScreen.dart';
 import 'package:artefato/login/login_screen.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_login.dart';
@@ -55,6 +54,33 @@ class _SingUpScreenState extends State<SingUpScreen>
                           textStyle: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 20, left: 30, right: 30),
+                      child: TextFormField(
+                        obscureText: false,
+                        keyboardType: TextInputType.visiblePassword,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontFamily: "Raleway",
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: "Nome",
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 245, 245, 245),
+                        ),
+                        validator: (text) {
+                          if (text?.isEmpty == true) {
+                            return "Este campo não pode ser vazio!";
+                          } else
+                            _senhaTxt = text;
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -205,6 +231,9 @@ class _SingUpScreenState extends State<SingUpScreen>
                       ),
                     ),
                     CustomForgetpass(),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Image.asset(
                       "assets/img_create_account.png",
                       width: MediaQuery.of(context).size.width * 0.5,

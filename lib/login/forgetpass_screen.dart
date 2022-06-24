@@ -109,18 +109,19 @@ class _ForgetPasswordState extends State<ForgetPassword>
                               Timer(
                                 Duration(seconds: 1),
                                 () async {
-                                  int responseLogin;
-                                  responseLogin =
+                                  var responseForget;
+                                  responseForget =
                                       await postForgetPass(_emailTxt!);
-                                  if (responseLogin == 1) {
+                                  if (responseForget == 1) {
                                     _btnController.success();
                                     Future.delayed(Duration(seconds: 2)).then(
                                       (_) {
                                         Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    LoginScreen()));
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ),
+                                        );
                                       },
                                     );
                                   } else {
