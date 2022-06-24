@@ -3,6 +3,9 @@ import 'package:artefato/login/login_screen.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../API REST/user/conexoesUser.dart';
 
 // ignore: must_be_immutable
 class ConfigScreen extends StatefulWidget {
@@ -86,7 +89,10 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       Padding(
                         padding: const EdgeInsets.only(top: 10),
                         child: MaterialButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.setString('_userID', "deslogado");
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (context) => LoginScreen(),
@@ -103,17 +109,23 @@ class _ConfigScreenState extends State<ConfigScreen> {
                         ),
                       ),
                       ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Excluir sua conta",
-                            style: GoogleFonts.roboto(
-                              fontSize: 20,
-                            ),
+                        onPressed: () async {
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          var _id = prefs.getString('_userID');
+                          removeUserAndAllAssets(_id!);
+                        },
+                        child: Text(
+                          "Excluir sua conta",
+                          style: GoogleFonts.roboto(
+                            fontSize: 20,
                           ),
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.red,
-                            onPrimary: Colors.white,
-                          )),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.red,
+                          onPrimary: Colors.white,
+                        ),
+                      ),
                     ],
                   ),
                 ),

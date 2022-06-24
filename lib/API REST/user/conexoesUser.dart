@@ -65,11 +65,14 @@ Future<dynamic> postLogin(String _email, String _pass) async {
   var responseLogin =
       await _dio.post(url, data: {"email": _email, "password": _pass});
 
-  _userID = await (responseLogin.data)["id"];
+  _userID = await (responseLogin.data);
 
   if (responseLogin.statusCode == 200) {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('_userID', _userID);
+
+    print(responseLogin.data);
+
     return 1;
   } else {
     return 0;

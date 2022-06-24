@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:artefato/home/home.dart';
 import 'package:artefato/home/homeScreen.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +23,6 @@ class _SplashLoginState extends State<SplashLogin> {
       ],
     );
 
-    SystemChrome.setEnabledSystemUIOverlays([]);
-
     Future.delayed(Duration(seconds: 3)).then(
       (_) {
         Navigator.pushReplacement(
@@ -49,7 +46,11 @@ class _SplashLoginState extends State<SplashLogin> {
         child: Stack(
           children: [
             Center(child: Image.asset('assets/background_artefato.png')),
-            Center(child: Image.asset('assets/artefato.png')),
+            Center(
+                child: Padding(
+              padding: const EdgeInsets.only(top: 13),
+              child: Image.asset('assets/artefato.png'),
+            )),
           ],
         ),
       ),
@@ -61,8 +62,6 @@ class _SplashLoginState extends State<SplashLogin> {
   }
 }
 
-//Splash que vai para a home
-
 class SplashHome extends StatefulWidget {
   @override
   _SplashHomeState createState() => _SplashHomeState();
@@ -72,7 +71,6 @@ class _SplashHomeState extends State<SplashHome> {
   Configs configs = Configs();
   @override
   void initState() {
-    //getValues(); dados de login
     super.initState();
 
     SystemChrome.setPreferredOrientations(
@@ -81,8 +79,6 @@ class _SplashHomeState extends State<SplashHome> {
         DeviceOrientation.portraitDown,
       ],
     );
-
-    SystemChrome.setEnabledSystemUIOverlays([]);
 
     Future.delayed(Duration(seconds: 3)).then(
       (_) {
@@ -96,19 +92,28 @@ class _SplashHomeState extends State<SplashHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0x1E1E1E),
-      body: Stack(
-        children: <Widget>[
-          Center(
-            child: Text("Artefato",
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: "Butler",
-                    fontStyle: FontStyle.normal,
-                    fontSize: 32.0),
-                textAlign: TextAlign.center),
-          ),
-        ],
+      appBar: AppBar(
+        backgroundColor: Color(0x1E1E1E),
+        title: Image.asset(
+          'assets/top_splash.png',
+          fit: BoxFit.cover,
+        ),
+      ),
+      body: Center(
+        child: Stack(
+          children: [
+            Center(child: Image.asset('assets/background_artefato.png')),
+            Center(
+                child: Padding(
+              padding: const EdgeInsets.only(top: 13),
+              child: Image.asset('assets/artefato.png'),
+            )),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Image.asset(
+        'assets/bottom_splash.png',
+        fit: BoxFit.cover,
       ),
     );
   }

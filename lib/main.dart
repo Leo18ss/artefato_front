@@ -11,13 +11,13 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
-      title: 'Aurem App',
+      title: 'Artefato',
       theme: ThemeData(
         fontFamily: 'Raleway',
         primaryColor: Color.fromARGB(255, 0, 54, 171),
       ),
       debugShowCheckedModeBanner: false,
-      home: _userID == null ? SplashLogin() : SplashHome(),
+      home: _userID == "deslogado" ? SplashLogin() : SplashHome(),
     ),
   );
 }
