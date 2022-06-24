@@ -41,7 +41,7 @@ Future<dynamic> createProduct(String _description, String _idCrafter,
 Future<dynamic> purshaseProduct() async {
   var url = '$_artefatoURL/product/purchase';
   var responseRegister = await _dio.post(url, data: {
-    "buyerId": "52eeb5f4-43a6-4306-afb0-cb588e0dcd79",
+    "buyerId": "fb7df7c0-96a0-4ab4-8aa6-4b91ff1a3079",
     "productId": "8f0577aa-57a5-4596-9e88-18a76c899214"
   });
   String imageBase64 = responseRegister.data['paymentInfo']['qrbase64'];

@@ -64,12 +64,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: TextFormField(
                 style: TextStyle(),
                 decoration: InputDecoration(
-                  labelText: "Nome do Produto",
+                  suffixIcon: Icon(Icons.edit),
+                  labelText: "Leonardo",
+                  filled: true,
+                  fillColor: widget.configs.isDarkModeEnabled
+                      ? Colors.grey.shade800
+                      : Colors.grey.shade200,
+                ),
+                validator: (text) {
+                  if (text?.isEmpty == true)
+                    return "Este campo não pode ser vazio!";
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: TextFormField(
+                style: TextStyle(),
+                decoration: InputDecoration(
+                  suffixIcon: Icon(Icons.edit),
+                  labelText: "leonardosilva@gec.inatel.br",
                   filled: true,
                   fillColor: widget.configs.isDarkModeEnabled
                       ? Colors.grey.shade800
@@ -83,79 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextFormField(
-                style: TextStyle(),
-                decoration: InputDecoration(
-                  labelText: "E-mail para contato",
-                  filled: true,
-                  fillColor: widget.configs.isDarkModeEnabled
-                      ? Colors.grey.shade800
-                      : Colors.grey.shade200,
-                ),
-                validator: (text) {
-                  if (text?.isEmpty == true)
-                    return "Este campo não pode ser vazio!";
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextFormField(
-                style: TextStyle(),
-                decoration: InputDecoration(
-                  labelText: "Nome do Produto",
-                  filled: true,
-                  fillColor: widget.configs.isDarkModeEnabled
-                      ? Colors.grey.shade800
-                      : Colors.grey.shade200,
-                ),
-                validator: (text) {
-                  if (text?.isEmpty == true)
-                    return "Este campo não pode ser vazio!";
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextFormField(
-                style: TextStyle(),
-                decoration: InputDecoration(
-                  labelText: "Descrição do Produto",
-                  filled: true,
-                  fillColor: widget.configs.isDarkModeEnabled
-                      ? Colors.grey.shade800
-                      : Colors.grey.shade200,
-                ),
-                validator: (text) {
-                  if (text?.isEmpty == true)
-                    return "Este campo não pode ser vazio!";
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: TextFormField(
-                style: TextStyle(),
-                decoration: InputDecoration(
-                  labelText: "Preço",
-                  filled: true,
-                  fillColor: widget.configs.isDarkModeEnabled
-                      ? Colors.grey.shade800
-                      : Colors.grey.shade200,
-                ),
-                validator: (text) {
-                  if (text?.isEmpty == true)
-                    return "Este campo não pode ser vazio!";
-                  return null;
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 160),
               child: ElevatedButton(
                   onPressed: () {},
                   child: Text(

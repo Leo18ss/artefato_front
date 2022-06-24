@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
-import 'dart:async';
 import 'package:artefato/home/home.dart';
 import 'package:artefato/login/widgets/custom_forgetpass.dart';
 import 'package:artefato/login/widgets/custom_signUp.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../API REST/user/conexoesUser.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -139,42 +137,42 @@ class _LoginScreenState extends State<LoginScreen>
                                   MaterialPageRoute(
                                       builder: (context) => Home()));
                               return;
-                              if (_formKey.currentState!.validate()) {
-                                Timer(
-                                  Duration(seconds: 1),
-                                  () async {
-                                    int responseLogin;
-                                    responseLogin =
-                                        await postLogin(_emailTxt!, _senhaTxt!);
-                                    if (responseLogin == 1) {
-                                      _btnController.success();
-                                      Future.delayed(Duration(seconds: 2)).then(
-                                        (_) {
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Home()));
-                                        },
-                                      );
-                                    } else {
-                                      _btnController.error();
-                                      print(
-                                        "Login ou senha incorreto.",
-                                      );
-                                      _btnController.reset();
-                                    }
-                                  },
-                                );
-                              } else {
-                                _btnController.error();
-                                Future.delayed(
-                                  Duration(seconds: 2),
-                                  () {
-                                    _btnController.reset();
-                                  },
-                                );
-                              }
+                              // if (_formKey.currentState!.validate()) {
+                              //   Timer(
+                              //     Duration(seconds: 1),
+                              //     () async {
+                              //       int responseLogin;
+                              //       responseLogin =
+                              //           await postLogin(_emailTxt!, _senhaTxt!);
+                              //       if (responseLogin == 1) {
+                              //         _btnController.success();
+                              //         Future.delayed(Duration(seconds: 2)).then(
+                              //           (_) {
+                              //             Navigator.pushReplacement(
+                              //                 context,
+                              //                 MaterialPageRoute(
+                              //                     builder: (context) =>
+                              //                         Home()));
+                              //           },
+                              //         );
+                              //       } else {
+                              //         _btnController.error();
+                              //         print(
+                              //           "Login ou senha incorreto.",
+                              //         );
+                              //         _btnController.reset();
+                              //       }
+                              //     },
+                              //   );
+                              // } else {
+                              //   _btnController.error();
+                              //   Future.delayed(
+                              //     Duration(seconds: 2),
+                              //     () {
+                              //       _btnController.reset();
+                              //     },
+                              //   );
+                              // }
                             },
                           ),
                         ),

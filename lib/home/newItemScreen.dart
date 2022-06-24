@@ -1,6 +1,5 @@
 import 'package:artefato/home/config.dart';
 import 'package:artefato/home/home.dart';
-import 'package:artefato/home/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,11 +50,11 @@ class _NewItemScreenState extends State<NewItemScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 10),
               child: Text(
                 "Cadastro e Postagem",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(fontSize: 36),
+                style: GoogleFonts.roboto(fontSize: 32),
               ),
             ),
             Center(
@@ -174,7 +173,7 @@ class _NewItemScreenState extends State<NewItemScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.only(top: 10, bottom: 40),
               child: ElevatedButton(
                   onPressed: () {},
                   child: Text(
@@ -186,8 +185,8 @@ class _NewItemScreenState extends State<NewItemScreen> {
                   style: ElevatedButton.styleFrom(
                     primary: widget.configs.isDarkModeEnabled
                         ? Colors.grey.shade600
-                        : Colors.pink, //background color
-                    onPrimary: Colors.white, //ripple color
+                        : Colors.pink,
+                    onPrimary: Colors.white,
                   )),
             ),
           ],
