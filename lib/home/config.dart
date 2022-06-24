@@ -1,5 +1,5 @@
 import 'package:artefato/home/home.dart';
-import 'package:artefato/login/singup_screen%20copy.dart';
+import 'package:artefato/login/login_screen.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,7 +89,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                builder: (context) => SingUpScreen(),
+                                builder: (context) => LoginScreen(),
                               ),
                             );
                           },
@@ -111,8 +111,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.red, //background color
-                            onPrimary: Colors.white, //ripple color
+                            primary: Colors.red,
+                            onPrimary: Colors.white,
                           )),
                     ],
                   ),

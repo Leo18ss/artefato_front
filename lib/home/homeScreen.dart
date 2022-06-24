@@ -1,6 +1,5 @@
 // import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-
 import 'package:artefato/API%20REST/product/conexoesProduct.dart';
 import 'package:artefato/home/config.dart';
 import 'package:artefato/home/data_mocks.dart';
@@ -152,15 +151,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             onTap: () {
-                              // setState(() {
-                              //   if (followerText == "Seguir") {
-                              //     followerText = "Seguindo";
-                              //   } else {
-                              //     followerText = "Serguir";
-                              //   }
-                              // });
-                              print(persons[i - 1].is_follower!);
-                              print(persons[i - 1].followerText!);
                               if (persons[i - 1].is_follower! == true) {
                                 setState(() => {
                                       persons[i - 1].setIsFollower(false),
@@ -169,16 +159,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     });
                               } else {
-                                setState(() => {
-                                      persons[i - 1].setIsFollower(true),
-                                      persons[i - 1].setFollowerText(
-                                        "Seguir",
-                                      ),
-                                    });
+                                setState(
+                                  () => {
+                                    persons[i - 1].setIsFollower(true),
+                                    persons[i - 1].setFollowerText(
+                                      "Seguir",
+                                    ),
+                                  },
+                                );
                               }
-                              print(persons[i - 1].is_follower!);
-                              print(persons[i - 1].followerText!);
-                              print("***");
                             },
                           )
                         ],
