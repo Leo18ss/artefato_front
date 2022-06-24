@@ -13,8 +13,9 @@ class SplashLogin extends StatefulWidget {
 class _SplashLoginState extends State<SplashLogin> {
   @override
   void initState() {
-    //getValues(); dados de login
     super.initState();
+
+    SystemChrome.setEnabledSystemUIOverlays([]);
 
     SystemChrome.setPreferredOrientations(
       [
@@ -72,6 +73,8 @@ class _SplashHomeState extends State<SplashHome> {
   @override
   void initState() {
     super.initState();
+
+    SystemChrome.setEnabledSystemUIOverlays([]);
 
     SystemChrome.setPreferredOrientations(
       [
